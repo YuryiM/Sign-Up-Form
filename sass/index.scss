@@ -1,9 +1,22 @@
 // @import 'reset';
 
-$primary-color: rgba(218, 218, 218, 0.678);
+$primary-color: rgb(255, 255, 255);
 
  * {
     font-family: 'Roboto', Arial, sans-serif;
+ }
+
+ :root {
+    --color-light: white;
+    --color-dark: #212121;
+    --color-signal: #fab700;
+    
+    --color-background: var(--color-light);
+    --color-text: var(--color-dark);
+    --color-accent: var(--color-signal);
+    
+    --size-bezel: .5rem;
+    --size-radius: 4px;
  }
 
 body {
@@ -14,7 +27,7 @@ body {
     width: 100vw;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    // justify-content: flex-start;
     align-items: center;
 
     &::before {
@@ -23,7 +36,7 @@ body {
         height: 100vh;
         content: '';
         z-index: -1;
-        background: url("../body-background.jpg") no-repeat center center fixed; 
+        background: url("../images/body-background.jpg") no-repeat center center fixed; 
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -32,15 +45,65 @@ body {
     }
 }
 
+fieldset {
+    display: inline-block;
+}
+
+.input {
+    position: relative;
+    
+    &-label {
+      position: absolute;
+      left: 0;
+      padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * .5);
+      margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * .5);
+      background: pink;
+      white-space: nowrap;
+      transform: translate(0, 0);
+      transform-origin: 0 0;
+      background-color: rgba($color: #ffffff, $alpha: 1.0);
+      transition: transform 120ms ease-in;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+
+    &-field {
+      display: inline-block;
+      width: 300px;
+      border: 2px solid currentColor;
+      padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+      color: currentColor;
+      background: transparent;
+      border-radius: var(--size-radius);
+      
+      &:focus,
+      &:not(:placeholder-shown) {
+        & + .input-label {
+          transform: translate(.25rem, -65%) scale(.8);
+        }
+      }
+    }
+}
+
 #main-container {
-    width: 55vw;
-    height: 55vh;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+#login-box {
+    width: 70vw;
+    height: 80vh;
     background-color: $primary-color;
     border-radius: 1rem;
+    align-self: center;
 }
 
 footer {
-    margin-top: auto;
+    margin-top: 0;
     text-align: center;
     color: #ffffff;
     padding: 0 0 10px 0;
