@@ -152,12 +152,12 @@ main {
 }
 
 #description {
-    margin: 20px 15px;
+    margin: 25px 30px;
     flex: 1;
 
     &> p {
         color: #4c485a;
-        margin-top: 10px;
+        margin-top: 20px;
     }
 }
 
@@ -253,15 +253,34 @@ input {
   }
 
 @media only screen and (max-width: 1000px) {
+    #description {
+        margin: 15px 20px 20px 20px;
+        text-align: left;
+    }
     #login-box {
-        width: 95%;
-        height: 95%;
+        width: 96%;
+        height: 98%;
     }
     #hero {
         display: none;
     }
     fieldset {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         width: 100%;
+    }
+    footer {
+        display: none;
+    }
+    #submit-btn {
+        width: 55%;
+    }
+    label, .input {
+        width: fit-content;
+        max-width: 90%;
     }
 }
 

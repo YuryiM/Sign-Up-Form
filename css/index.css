@@ -175,7 +175,7 @@ main {
 }
 
 #description {
-  margin: 20px 15px;
+  margin: 25px 30px;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -183,7 +183,7 @@ main {
 
 #description > p {
   color: #4c485a;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 p {
@@ -295,15 +295,45 @@ input {
 }
 
 @media only screen and (max-width: 1000px) {
+  #description {
+    margin: 15px 20px 20px 20px;
+    text-align: left;
+  }
   #login-box {
-    width: 95%;
-    height: 95%;
+    width: 96%;
+    height: 98%;
   }
   #hero {
     display: none;
   }
   fieldset {
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     width: 100%;
+  }
+  footer {
+    display: none;
+  }
+  #submit-btn {
+    width: 55%;
+  }
+  label, .input {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    max-width: 90%;
   }
 }
 
