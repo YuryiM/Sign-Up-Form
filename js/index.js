@@ -15,10 +15,10 @@ let passwordLabel = document.getElementById('password-label');
 let confirmPasswordLabel = document.getElementById('confirm-password-label');
 
 // Colors
-const burnOrange = '#ffae00';
+const burntOrange = '#ffae00';
 const positiveGreen = '#4ed43c';
 const negativeRed = '#ec1919';
-
+const black = '#000000';
 
 const validateEmail = address => {
     // Checks if address is a valid email
@@ -32,18 +32,22 @@ const validatePassword = password => {
     return (password.match(passwdRegex)) ? true : false;
 }
 
+const validatePhoneNum = phoneNumber => {
+    const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+    return (phoneNumber.match(phoneRegex)) ? true : false;
+}
+
 emailInput.addEventListener('focusout', () => {
     if(emailInput.value){
         if(validateEmail(emailInput.value)){
             emailLabel.style.color = positiveGreen;
         }
         else {
-            console.log('failed!');
             emailLabel.style.color = negativeRed;
         }
     }
     else {
-        emailLabel.style.color = burnOrange;
+        emailLabel.style.color = burntOrange;
     }
 });
 
@@ -53,16 +57,34 @@ passwordInput.addEventListener('focusout', () => {
             passwordLabel.style.color = positiveGreen;
         }
         else {
-            console.log('failed!');
             passwordLabel.style.color = negativeRed;
         }
     }
     else {
-        passwordLabel.style.color = burnOrange;
+        passwordLabel.style.color = burntOrange;
+    }
+});
+
+phoneInput.addEventListener('focusout', () => {
+    if(phoneInput.value){
+        if(validatePhoneNum(phoneInput.value)){
+            phoneLabel.style.color = positiveGreen;
+        }
+        else {
+            phoneLabel.style.color = negativeRed;
+        }
+    }
+    else {
+        phoneLabel.style.color = black;
     }
 });
 
 firstNameInput.addEventListener('focusout', () => {
-    if(firstNameInput.value) firstNameLabel.style.color=positiveGreen;
-    else firstNameLabel.style.color=burnOrange;
+    if(firstNameInput.value) firstNameLabel.style.color = positiveGreen;
+    else firstNameLabel.style.color = burntOrange;
+});
+
+lastNameInput.addEventListener('focusout', () => {
+    if(lastNameInput.value) lastNameLabel.style.color = positiveGreen;
+    else lastNameLabel.style.color = black;
 });
