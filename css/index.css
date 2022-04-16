@@ -240,7 +240,7 @@ input {
 }
 
 /* CSS */
-.submit-btn {
+#submit-btn {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -278,25 +278,32 @@ input {
   border-radius: 5px;
 }
 
-.submit-btn:focus {
+#submit-btn:focus {
   color: #171e29;
 }
 
-.submit-btn:hover {
+#submit-btn:hover {
   border-color: #ffae00;
   color: #ffae00;
   fill: #ffae00;
 }
 
-.submit-btn:active {
+#submit-btn:active {
   border-color: #4ed43c;
   color: #4ed43c;
   fill: #4ed43c;
 }
 
-@media (min-width: 768px) {
-  .submit-btn {
-    min-width: 170px;
+@media only screen and (max-width: 1000px) {
+  #login-box {
+    width: 95%;
+    height: 95%;
+  }
+  #hero {
+    display: none;
+  }
+  fieldset {
+    width: 100%;
   }
 }
 

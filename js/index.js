@@ -20,6 +20,16 @@ const positiveGreen = '#4ed43c';
 const negativeRed = '#ec1919';
 const black = '#000000';
 
+// Valid input checks
+let emailValid = false;
+let phoneNumValid = false;
+let passwordValid = false;
+let passwordEqual = false;
+
+
+let submitBtn = document.getElementById('submit-btn');
+let form = document.getElementById('form');
+
 const validateEmail = address => {
     // Checks if address is a valid email
     const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -37,16 +47,23 @@ const validatePhoneNum = phoneNumber => {
     return (phoneNumber.match(phoneRegex)) ? true : false;
 }
 
+const passwordMatch = () => {
+    return (passwordInput.value == confirmPasswordInput.value) ? true : false;
+}
+
 emailInput.addEventListener('focusout', () => {
     if(emailInput.value){
         if(validateEmail(emailInput.value)){
+            emailValid = true;
             emailLabel.style.color = positiveGreen;
         }
         else {
+            emailValid = false;
             emailLabel.style.color = negativeRed;
         }
     }
     else {
+        emailValid = false;
         emailLabel.style.color = burntOrange;
     }
 });
@@ -54,29 +71,57 @@ emailInput.addEventListener('focusout', () => {
 passwordInput.addEventListener('focusout', () => {
     if(passwordInput.value){
         if(validatePassword(passwordInput.value)){
+            passwordValid = true;
             passwordLabel.style.color = positiveGreen;
         }
         else {
+            passwordValid = false;
             passwordLabel.style.color = negativeRed;
         }
     }
     else {
+        passwordValid = false;
         passwordLabel.style.color = burntOrange;
+    }
+});
+
+confirmPasswordInput.addEventListener('focusout', () => {
+    if(confirmPasswordInput.value){
+        if(passwordMatch()){
+            passwordEqual = true;
+            confirmPasswordLabel.style.color = positiveGreen;
+        }
+        else {
+            passwordEqual = false;
+            confirmPasswordLabel.style.color = negativeRed;
+        }
+    }
+    else {
+        passwordEqual = false;
+        confirmPasswordLabel.style.color = burntOrange;
     }
 });
 
 phoneInput.addEventListener('focusout', () => {
     if(phoneInput.value){
         if(validatePhoneNum(phoneInput.value)){
+            phoneNumValid = true;
             phoneLabel.style.color = positiveGreen;
         }
         else {
+            phoneNumValid = false;
             phoneLabel.style.color = negativeRed;
         }
     }
     else {
+        phoneNumValid = false;
         phoneLabel.style.color = black;
     }
+});
+
+submitBtn.addEventListener('click', () => {
+    if(emailValid && phoneNumValid && passwordValid && passwordEqual) console.log("SUBMITTED");
+    else console.log("FAILED TO SUBMIT");
 });
 
 firstNameInput.addEventListener('focusout', () => {
