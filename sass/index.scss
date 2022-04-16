@@ -1,9 +1,9 @@
 // @import 'reset';
 
-$burnt-yellow: rgb(255, 174, 0);
-$positive-green: rgb(78, 212, 60);
-$negative-red: rgb(236, 25, 25);
-$background-color: rgb(224, 224, 224);
+$burnt-yellow: #ffae00;
+$positive-green: #4ed43c;
+$negative-red: #ec1919;
+$background-color: #e0e0e0;
 
  * {
     font-family: 'Roboto', Arial, sans-serif;
@@ -251,23 +251,7 @@ input {
         fill: $positive-green;
     }
   }
-  
-//   .submit-btn:focus {
-//     color: #171e29;
-//   }
-  
-//   .submit-btn:hover {
-//     border-color: #06f;
-//     color: #06f;
-//     fill: #06f;
-//   }
-  
-//   .submit-btn:active {
-//     border-color: #06f;
-//     color: #06f;
-//     fill: #06f;
-//   }
-  
+
 @media (min-width: 768px) {
     .submit-btn {
         min-width: 170px;
