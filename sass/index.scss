@@ -1,6 +1,9 @@
 // @import 'reset';
 
-$primary-color: rgb(255, 255, 255);
+$burnt-yellow: rgb(255, 174, 0);
+$positive-green: rgb(78, 212, 60);
+$negative-red: rgb(236, 25, 25);
+$background-color: rgb(224, 224, 224);
 
  * {
     font-family: 'Roboto', Arial, sans-serif;
@@ -21,13 +24,12 @@ $primary-color: rgb(255, 255, 255);
 
 body {
     margin: 0;
+    width: 100vw;
     height: 100vh;
     max-width: 100vw;
     max-height: 100vh;
-    width: 100vw;
     display: flex;
     flex-direction: column;
-    // justify-content: flex-start;
     align-items: center;
 
     &::before {
@@ -64,7 +66,7 @@ fieldset {
       white-space: nowrap;
       transform: translate(0, 0);
       transform-origin: 0 0;
-      background-color: rgba($color: #ffffff, $alpha: 1.0);
+      background-color: rgba($color: $background-color, $alpha: 1.0);
       transition: transform 120ms ease-in;
       font-weight: bold;
       line-height: 1.2;
@@ -79,11 +81,10 @@ fieldset {
       background: transparent;
       border-radius: var(--size-radius);
       
-      &:focus,
-      &:not(:placeholder-shown) {
+      &:focus, &:not(:placeholder-shown) {
         & + .input-label {
           transform: translate(.25rem, -55%) scale(.8);
-          color: rgb(49, 204, 62);
+          color: $burnt-yellow;
         }
       }
     }
@@ -100,9 +101,9 @@ fieldset {
 
 #login-box {
     display: flex;
-    width: 70vw;
+    width: 60vw;
     height: 80vh;
-    background-color: $primary-color;
+    background-color: $background-color;
     border-radius: 1rem ;
     box-shadow: 6px 5px 5px #6d6d6d49;
 
@@ -110,11 +111,10 @@ fieldset {
 
 #hero {
     flex: 1.071;
-    // background-color: red;
     background-image:
         linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(78, 78, 78, 0.747)),
-        url('../images/joshua-tree.jpg');
-    background-size: cover; /* or contain depending on what you want */
+        url('../images/cactus.jpg');
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     border-radius: 1rem 0 0 1rem;
@@ -124,8 +124,10 @@ h1 {
     margin: 0;
 }
 
-#description > p {
-    color: #726c86;
+
+
+.required-label{
+    color: $burnt-yellow;
 }
 
 #hero-banner {
@@ -152,6 +154,11 @@ main {
 #description {
     margin: 20px 15px;
     flex: 1;
+
+    &> p {
+        color: #4c485a;
+        margin-top: 10px;
+    }
 }
 
 p {
@@ -159,15 +166,15 @@ p {
 }
 
 form {
-    flex: 3;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    flex: 2;
     height: 60%;
 }
 
 fieldset {
     border: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
 }
 
 img {
@@ -197,3 +204,77 @@ input {
     border-width: 1px;
 }
 
+#submit-field {
+    margin: 5% 0 0 0;
+}
+// tstst
+/* CSS */
+.submit-btn {
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    color: #000;
+    cursor: pointer;
+    display: inline-flex;
+    fill: #000;
+    font-size: 16px;
+    font-weight: 600;
+    height: 48px;
+    justify-content: center;
+    letter-spacing: -.8px;
+    line-height: 24px;
+    min-width: 140px;
+    outline: 0;
+    padding: 0 17px;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    border-radius: 5px;
+
+    &:focus {
+        color: #171e29;
+      }
+
+    &:hover {
+        border-color: $burnt-yellow;
+        color: $burnt-yellow;
+        fill: $burnt-yellow;
+    }
+
+    &:active {
+        border-color: $positive-green;
+        color: $positive-green;
+        fill: $positive-green;
+    }
+  }
+  
+//   .submit-btn:focus {
+//     color: #171e29;
+//   }
+  
+//   .submit-btn:hover {
+//     border-color: #06f;
+//     color: #06f;
+//     fill: #06f;
+//   }
+  
+//   .submit-btn:active {
+//     border-color: #06f;
+//     color: #06f;
+//     fill: #06f;
+//   }
+  
+@media (min-width: 768px) {
+    .submit-btn {
+        min-width: 170px;
+    }
+}
+
+p#required-text{
+    text-decoration: underline;
+    color: $burnt-yellow;
+}
