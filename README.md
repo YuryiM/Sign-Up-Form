@@ -1,2 +1,1 @@
-# Sign-Up-Form
-Sign-up form project for TheOdinProject
+/html/index.html
